@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Cloud Portfolio</title>
+  <style>
+    :root {
+      --primary-color: #ffffff;
+      --text-color: #1a1a1a;
+      --link-color: #ffffff;
+      --link-hover: #dddddd;
+      --card-bg: rgba(255, 255, 255, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, rgba(70, 170, 220, 0.9), rgba(140, 235, 170, 0.9), rgba(0, 128, 128, 0.9)), url('https://images.unsplash.com/photo-1621261768144-028cce6b48e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=90') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text-color);
+      line-height: 1.6;
+      background-size: cover;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: transparent;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 4.5rem;
+      margin-bottom: 0.5rem;
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: transparent;
+      -webkit-text-stroke: 1px #ffffff;
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+      background: none;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      backdrop-filter: none;
+      animation: fadeSlide 1.2s ease-out forwards;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: color 0.3s ease, background 0.3s ease;
+      animation: fadeSlide 1.2s ease-out forwards;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: color 0.3s ease, background 0.3s ease;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      color: var(--primary-color); font-weight: 600;
+    }
+
+    .cv-button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+    }
+
+    .cv-button:hover {
+      background: var(--primary-color);
+      color: #0f2027;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 80px;
+      font-size: 2rem;
+      color: var(--primary-color);
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .certifications {
+      text-align: center;
+      padding: 4rem 0 2rem;
+    }
+
+    .certifications h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+    }
+
+    .cert-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .cert-icons img {
+      height: 60px;
+      width: auto;
+      filter: drop-shadow(0 0 4px rgba(0,0,0,0.4));
+    }
+
+    .projects {
+      padding: 4rem 0;
+    }
+
+    .projects h2 {
+      font-size: 2.4rem;
+      margin-bottom: 2.5rem;
+      
+      display: inline-block;
+      padding-bottom: 0.75rem;
+      color: #ffffff;
+      text-align: center;
+      width: 100%;
+    }
+
+    .projects-grid {
+      padding: 0 15rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project:hover {
+      transform: translateY(-10px);
+      background: #ffffff;
+      color: #0f2027;
+    }
+
+    .project:hover a {
+      color: #000000 !important;
+      font-weight: bold;
+    }
+
+    .project h3 {
+      color: inherit;
+      margin-bottom: 1rem;
+      display: block;
+      text-align: center;
+    }
+
+    .project h3::before {
+      content: "\1F4BB";
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .project p {
+      margin-bottom: 1.5rem;
+      color: inherit;
+    }
+
+    .project a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .project a:hover {
+      color: var(--link-hover);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: transparent;
+      color: #444;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .projects h2 {
+    font-size: 1.8rem;
+  }
+
+  .project {
+    padding: 2rem;
+  }
+
+  .projects-grid {
+    padding: 0 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .cert-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+      .projects h2 {
+        font-size: 1.8rem;
+      }
+
+      .project {
+        padding: 2rem;
+      }
+    }
+  @keyframes fadeSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .certifications, .projects, .project, .cert-icons img, .projects h2 {
+  animation: fadeSlide 1.2s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.certifications.visible, .projects.visible, .project.visible, .cert-icons img.visible, .projects h2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    padding: 0 4rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1 style="font-size: 4.5rem; margin-bottom: 1rem; font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 800; letter-spacing: 1px; color: transparent; -webkit-text-stroke: 1px #ffffff; text-shadow: 0 0 4px rgba(255, 255, 255, 0.3); animation: fadeSlide 1.2s ease-out forwards; opacity: 0; transform: translateY(-20px);">My Cloud Portfolio</h1>
+<p style="font-size: 1.5rem; color: #fff; font-weight: 600; margin-bottom: 1rem;">Cloud Engineer | Specialising in Azure & AWS</p>
+<p style="font-size: 1.15rem; color: #f5f5f5; line-height: 1.8; max-width: 750px;">I help bring cloud ideas to life—from networked environments in Azure to secure serverless apps in AWS. My focus is performance, simplicity, and reliability. Below you'll find some of my favourite projects and certifications that reflect my continuous learning.</p>
+    <a class="cv-button" href="assets/my-cv.pdf" download>Download CV</a>
+    <div class="scroll-down" onclick="document.querySelector('.certifications').scrollIntoView({ behavior: 'smooth' });">&#x2193;</div>
+  </header>
+
+  
+
+    <section class="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <h3>Azure Virtual Network Lab</h3>
+          <p>Hands-on VNet setup with NSG and VM deployment.</p>
+          <a href="projects/azure-vnet.html">View Documentation →</a>
+        </div>
+        <div class="project">
+          <h3>AWS EC2 + S3 Static Website</h3>
+          <p>Deployed a scalable static site using EC2 and S3.</p>
+          <a href="projects/aws-ec2-s3.html">View Documentation →</a>
+        </div>
+        <div class="project">
+          <h3>Terraform Azure Infrastructure</h3>
+          <p>Used Terraform to provision a complete Azure lab setup.</p>
+          <a href="projects/terraform-azure.html">View Documentation →</a>
+        </div>
+        <div class="project">
+          <h3>Entra ID Conditional Access</h3>
+          <p>Implemented and tested Conditional Access policies in Entra ID.</p>
+          <a href="projects/entra-conditional-access.html">View Documentation →</a>
+        </div>
+        <div class="project">
+          <h3>Monitoring with Azure Log Analytics</h3>
+          <p>Built monitoring dashboards using Azure Monitor and Log Analytics.</p>
+          <a href="projects/azure-monitoring.html">View Documentation →</a>
+        </div>
+        <div class="project">
+          <h3>AWS Lambda Automation</h3>
+          <p>Created serverless functions to automate AWS tasks with Lambda.</p>
+          <a href="projects/aws-lambda.html">View Documentation →</a>
+        </div>
+      </div>
+    </section>
+  
+  <section class="certifications">
+      <h2>Certifications</h2>
+      <div class="cert-icons">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CompTIA_A%2B_certified_logo.svg" alt="CompTIA A+" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/CompTIA_N%2B_logo.svg" alt="CompTIA Network+" />
+        <img src="https://cdn.worldvectorlogo.com/logos/microsoft-azure-1.svg" alt="Azure AZ-104" />
+        <img src="https://cdn.worldvectorlogo.com/logos/aws-2.svg" alt="AWS Certified Admin" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 My Name | Built with HTML, CSS & JS</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("Portfolio site loaded.");
+    });
+  </script>
+<script>
+  const fadeElements = document.querySelectorAll('.certifications, .projects, .project, .cert-icons img, .projects h2');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fadeElements.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
