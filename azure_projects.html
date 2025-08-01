@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azure Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ::selection {
+      background: yellow;
+      color: black;
+    }
+
+    html, body {
+      height: 100vh;
+      width: 100vw;
+      background: #ffffff;
+      font-family: 'Space Grotesk', sans-serif;
+      color: #000000;
+      overflow: hidden;
+    }
+
+    .border-box {
+      height: calc(100vh - 2vw);
+      width: calc(100vw - 2vw);
+      margin: 1vw;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 3vw;
+      position: relative;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 2vw;
+      left: 2vw;
+      font-size: 0.9vw;
+      text-decoration: none;
+      color: #000;
+      z-index: 10;
+    }
+
+    .back-link:hover {
+      color: #555;
+    }
+
+    .content {
+      width: 100%;
+      margin-top: 3vw;
+    }
+
+    .content .line {
+      white-space: nowrap;
+    }
+
+    .content .line.main {
+      font-size: 2vw;
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 2vw;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 0.3ch;
+      height: 1em;
+      background-color: #000;
+      animation: blink 1s steps(1) infinite;
+      margin-left: 0.2ch;
+      transform: translateY(0.1em);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2vw;
+    }
+
+    .card {
+      border: 1px solid #000;
+      padding: 1.5vw;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      background-color: #f3f3f3;
+      transform: scale(1.05);
+    }
+
+    .card h2 {
+      font-size: 0.7vw;
+      margin-bottom: 0.5vw;
+    }
+
+    .card p {
+      font-size: 0.5vw;
+      color: #333;
+      margin-bottom: 0.5vw;
+    }
+
+    .card a {
+      font-size: 0.7vw;
+      text-decoration: none;
+      color: #000;
+  
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 1.2vw;
+      right: 2.2vw;
+      font-size: 0.7vw;
+      font-weight: 300;
+      color: #555;
+      font-style: italic;
+      pointer-events: none;
+    }
+
+    @media (max-width: 1024px) {
+      html, body {
+        height: auto;
+        overflow-y: auto;
+      }
+
+      .border-box {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 10vw 5vw;
+        height: auto;
+        width: calc(100vw - 2vw);
+        margin: 1vw;
+        border: 1px solid black;
+        min-height: 100vh;
+      }
+
+      .back-link {
+        font-size: 3vw;
+        top: 4vw;
+        left: 4vw;
+      }
+
+      .content .line.main {
+        font-size: 5vw;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card h2 {
+        font-size: 2vw;
+      }
+
+      .card p,
+      .card a {
+        font-size: 3.2vw;
+      }
+
+      .footer {
+        font-size: 3vw;
+        bottom: 2vw;
+        right: 2vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="border-box">
+    <a class="back-link" href="index.html">&larr; Back to Portfolio</a>
+    <div class="content">
+      <div class="line main"><span>> Azure Projects</span><span class="cursor"></span></div>
+      <div class="grid">
+        <div class="card">
+          <h2>IaC with GitHub Actions & Bicep</h2>
+          <p>
+            I automated the deployment of Azure infrastructure using Bicep and GitHub Actions.
+            The pipeline provisions VMs, networking, storage, Key Vault, and Azure SQL, all from code.
+            Secrets were handled securely, and each push to GitHub triggers a full CI/CD flow, making this setup both secure and repeatable.
+          </p>
+          <a href="#" target="_blank">> View Documentation</a>
+        </div>
+        <div class="card">
+          <h2>Hybrid Cloud: On-Prem to Azure VPN + Domain Join</h2>
+          <p>
+            I created a hybrid cloud setup by configuring a VPN tunnel between a simulated on-prem environment and Azure. 
+            I deployed a domain controller in Azure, joined VMs to it, and synced identities using Azure AD Connect. 
+            This project covers hybrid identity, networking, and AD integration — just like in enterprise environments.
+          </p>
+          <a href="#" target="_blank">> View Documentation</a>
+        </div>
+        <div class="card">
+          <h2>Zero Trust Identity & Network Architecture</h2>
+          <p>
+            I built a Zero Trust environment in Azure by combining Conditional Access, Entra ID Identity Protection,
+             Azure Firewall, and private endpoints. This project focused on securing both identity and network access
+              using modern security principles and showed how to lock down resources effectively without sacrificing usability.
+          </p>
+          <a href="#" target="_blank">> View Documentation</a>
+        </div>
+        <div class="card">
+          <h2>Enterprise-Grade Azure Landing Zone with Policy & Security</h2>
+          <p>
+            I designed and deployed a fully governed Azure Landing Zone using Bicep, implementing hub-spoke networking, 
+            custom Azure Policies, and role-based access control. The setup includes centralized logging with Azure Monitor 
+            and Defender for Cloud. It's built to scale, stay compliant, and enforce security from day one.
+          </p>
+          <a href="#" target="_blank">> View Documentation</a>
+        </div>
+        <div class="card">
+          <h2>Global Web App with Front Door, App Services & Cosmos DB</h2>
+          <p>
+            I developed a scalable, globally accessible web app using Azure Front Door for traffic distribution, 
+            App Services for the backend, and Cosmos DB for multi-region NoSQL storage. This project demonstrates 
+            performance optimization, geo-redundancy, and secure API management in a real-world architecture.
+          </p>
+          <a href="#" target="_blank">> View Documentation</a>
+        </div>
+        <div class="card">
+          <h2>Security Monitoring with Azure Sentinel</h2>
+          <p>
+            I set up Azure Sentinel as a SIEM solution, connecting data from Entra ID, Microsoft 365, and virtual machines.
+            I wrote custom KQL queries for threat detection and configured Logic Apps to send Teams alerts for specific incidents.
+            This project shows how to proactively monitor and respond to security threats
+          </p>
+          <a href="#" target="_blank">> View Documentation</a>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="footer">© 2025 My Cloud Portfolio. All rights reserved.</div> -->
+  </div>
+</body>
+</html>
